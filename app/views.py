@@ -295,7 +295,7 @@ def calculate_top_sitters(request):
             if user_region_importance == 1 and user_local == sitter.local:
                 score += 1
                 
-            sitter_results.append({'sitter': sitter, 'sitter_survey': sitter_survey, 'score': np.round_(score, 3)})
+            sitter_results.append({'sitter': sitter, 'sitter_survey': sitter_survey, 'score': np.round(score, 3)})
 
         # 정확도(score)를 기준으로 내림차순 정렬
         sitter_results.sort(key=lambda x: x['score'], reverse=True)
