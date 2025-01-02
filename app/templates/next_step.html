@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style5.css' %}">
+<h1 style="text-align: center; font-size: 25px; margin: 50px auto;">사용자 회원가입</h1>
+<form class="survey-form" method="post" onsubmit="return validateSurveyForm();" action="{% url 'next_step' %}">
+    <p class="signup-title" style="font-size: 22px; margin-bottom: 20px;">2. 설문 조사</p>
+    <p class="survey-description">
+        귀하와 무관한 항목의 경우 '상관 없음'으로 선택하시면 됩니다. (중복 선택 불가)
+    </p>
+    {% csrf_token %}
+    <div class="survey-box">
+        <div class="survey-question">
+            <label>질문 1: 같은 지역의 돌보미를 원하시나요?</label>
+            <div class="survey-options">
+                <label class="survey-option">
+                    <input type="radio" name="question1_response" value="1">매우 중요
+                </label>
+                <label class="survey-option">
+                    <input type="radio" name="question1_response" value="0.3">보통
+                </label>
+                <label class="survey-option">
+                    <input type="radio" name="question1_response" value="0">상관 없음
+                </label>
+            </div>
+        </div>
+            <div class="survey-question">
+                <label>질문 2: 대형견 돌봄이 필요하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question2_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question2_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question2_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 3: 픽업이 필요하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question3_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question3_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question3_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 4: 산책이 필요하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question4_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question4_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question4_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 5: 다견 돌봄이 필요하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question5_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question5_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question5_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 6: 1박 이상의 돌봄이 필요하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question6_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question6_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question6_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 7: 방문 돌봄이 필요하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question7_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question7_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question7_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 8: 자격증 있는 돌봄이를 원하시나요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question8_response" value="1">매우 필요
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question8_response" value="0.3">보통
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question8_response" value="0">상관 없음
+                    </label>
+                </div>
+            </div>
+            <div class="next-button-container" style="text-align: right; margin-top: 30px;">
+                <button type="submit" class="next-button" style="background-color: #007bff; color: #fff; padding: 15px 40px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; margin-top: 10px;">가입 완료</button>
+            </div>
+        </form>
+        {% endblock %}
+
+
+

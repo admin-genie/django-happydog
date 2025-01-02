@@ -1,0 +1,41 @@
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #364040;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 0.50px #EFEFEF solid;
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 250px;
+}
+
+.menu-item a {
+    color: #333; 
+    text-decoration: none;
+    transition: color 0.5s; 
+}
+
+.menu-item a:hover {
+    color: #18E720; 
+}

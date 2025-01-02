@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}해피투개더{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style0.css' %}">
+</head>
+<body style="overflow-x: hidden">
+<div class="navbar">
+    <div class="logo-container">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'logo.png' %}" class="logo">
+        </a>
+    </div>
+    <ul class="menu">
+        <li class="menu-item"><a href="{% url 'sitterapplication' %}">돌보미신청</a></li>
+        <li class="menu-item"><a href="{% url 'community' %}">커뮤니티</a></li>
+
+        {% if user.is_authenticated %}
+            <li class="menu-item"><a href="{% url 'logout' %}">로그아웃</a></li>
+            {% if user.user_type == 'user' %}
+                <li class="menu-item"><a href="{% url 'user_profile' %}">내정보</a></li>
+            {% elif user.user_type == 'sitter' %}
+                <li class="menu-item"><a href="{% url 'sitter_profile' %}">내정보</a></li>
+            {% endif %}
+        {% else %}
+            <li class="menu-item"><a href="{% url 'login' %}">로그인</a></li>
+            <li class="menu-item"><a href="{% url 'signup' %}">회원가입</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+{% block content %}{% endblock %}
+</body>
+</html>
+
+
+
+

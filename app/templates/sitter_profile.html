@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style10.css' %}">
+
+<div class="category-container">
+    <div class="category-sidebar">
+        <h3 class="category-title">내정보</h3>
+        <ul class="category-list">
+            <li class="category-item">
+                <button class="category-button">예약 현황</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">예약 내역</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">내 정보 수정</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">탈퇴하기</button>
+            </li>
+        </ul>
+    </div>
+    <div class="community-content">
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style4.css' %}">
+<h1 style="text-align: center; font-size: 25px; margin: 50px auto; ">회원가입</h1>
+<form class="signup-form" method="post" action="{% url 'user_signup' %}">
+  {% csrf_token %}
+    <div class="signup-container">
+        <p class="signup-title" style="margin: left;">1. 기본 정보</p>
+        <p style="margin: left;">※ 돌봄이 회원가입의 경우 아래의 유형에서 반드시 '돌봄이'를 선택해 주세요.</p>
+        <div class="form-row">
+            <label for="{{ user_form.user_type.id_for_label }}">유형:</label>
+            {{ user_form.user_type }}
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.username.id_for_label }}">아이디:</label>
+            {{ user_form.username }}
+            <div id="username-feedback"></div>
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.password1.id_for_label }}">비밀번호:</label>
+            {{ user_form.password1 }}
+            <p class="form-help-text">{{ user_form.password1.help_text }}</p>
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.password2.id_for_label }}">비밀번호 확인:</label>
+            {{ user_form.password2 }}
+            <div id="password-feedback"></div>
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.first_name.id_for_label }}">이름:</label>
+            {{ user_form.first_name }}
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.birth_date.id_for_label }}">생년월일:</label>
+            {{ user_form.birth_date }}
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.gender.id_for_label }}">성별:</label>
+            {{ user_form.gender }}
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.phone_number.id_for_label }}">전화번호:</label>
+            {{ user_form.phone_number }}
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.email.id_for_label }}">이메일:</label>
+            {{ user_form.email }}
+        </div>
+        <div class="form-row">
+            <label for="{{ user_form.local.id_for_label }}">지역:</label>
+            {{ user_form.local }}
+        </div>
+        <div class="form-row">
+            <button class="signup-button" type="submit">다음</button>
+        </div>
+    </div>
+    
+</form>
+{% endblock %}

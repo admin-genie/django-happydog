@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style6.css' %}">
+
+<div class="category-container">
+    <div class="category-sidebar">
+        <h3 class="category-title">카테고리</h3>
+        <ul class="category-list">
+            <li class="category-item">
+                <button class="category-button" href="{% url 'community' %}">전체 게시판</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">자랑해요</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">공유해요</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">나눔해요</button>
+            </li>
+            <li class="category-item">
+                <button class="category-button">함께해요</button>
+            </li>
+        </ul>
+    </div>
+    <div class="community-content">
+        <h2 class="community-title">게시글 목록</h2>
+        <a href="{% url 'create_post' %}" class="create-post-link">글작성</a>
+        <div class="post-list-spacing"></div>
+        <table class="post-table">
+            <thead>
+                <tr>
+                    <th class="post-header">번호</th>
+                    <th class="post-header" style="padding-right: 200px;">제목</th>
+                    <th class="post-header">작성자</th>
+                    <th class="post-header">작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr class="post-row">
+                    <td class="post-data post-number">{{ post.id }}</td>
+                    <td class="post-data post-title">
+                        <a class="post-link" href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                        {% if post.image %}
+                        <img src="{% static 'camera.png' %}" class="post-image" width="20" height="15">
+                        {% endif %}
+                    </td>
+                    <td class="post-data post-author">{{ post.author }}</td>
+                    <td class="post-data post-date">{{ post.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span class="step-links">
+                <span class="current-page">
+                    {% for i in posts.paginator.page_range %}
+                        <a href="?page={{ i }}" class="{% if i == posts.number %}active{% endif %}">{{ i }}</a>
+                    {% endfor %}
+                </span>
+                {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}">이전</a>
+                {% endif %}
+                {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">다음</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock %}

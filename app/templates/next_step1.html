@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style5.css' %}">
+<h1 style="text-align: center; font-size: 25px; margin: 50px auto;">돌봄이 회원가입</h1>
+<form class="survey-form" method="post" onsubmit="return validateSurveyForm();" action="{% url 'next_step1' %}">
+    <p class="signup-title" style="font-size: 22px; margin-bottom: 20px;">2. 설문 조사</p>
+    <p class="survey-description">
+        아래 항목을 기반으로 사용자에게 귀하의 정보가 추천됩니다. 
+        <br>로그인 후 '내정보'에서 재설정이 가능하오니, 현재 상황에 빗대어 선택해 주시길 바랍니다. (중복 선택 불가)
+    </p>
+    {% csrf_token %}
+    <div class="survey-box">
+        <div class="survey-question">
+            <label>질문 1: 대형견 돌봄이 가능하신가요?</label>
+            <div class="survey-options">
+                <label class="survey-option">
+                    <input type="radio" name="question1_response" value="1">가능
+                </label>
+                <label class="survey-option">
+                    <input type="radio" name="question1_response" value="0">불가능
+                </label>
+            </div>
+        </div>
+            <div class="survey-question">
+                <label>질문 2: 픽업이 가능하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question2_response" value="1">가능
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question2_response" value="0">불가능
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 3: 산책 돌봄이 가능하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question3_response" value="1">가능
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question3_response" value="0">불가능
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 4: 다견 돌봄이 가능하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question4_response" value="1">가능
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question4_response" value="0">불가능
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 5: 1박 이상의 돌봄이 가능하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question5_response" value="1">가능
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question5_response" value="0">불가능
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 6: 방문 서비스가 가능하신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question6_response" value="1">가능
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question6_response" value="0">불가능
+                    </label>
+                </div>
+            </div>
+            <div class="survey-question">
+                <label>질문 7: 자격증을 보유하고 계신가요?</label>
+                <div class="survey-options">
+                    <label class="survey-option">
+                        <input type="radio" name="question7_response" value="1">있음
+                    </label>
+                    <label class="survey-option">
+                        <input type="radio" name="question7_response" value="0">없음
+                    </label>
+                </div>
+            </div>
+            <div class="next-button-container" style="text-align: right; margin-top: 30px;">
+                <button type="submit" class="next-button" style="background-color: #007bff; color: #fff; padding: 15px 40px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; margin-top: 10px;">가입 완료</button>
+            </div>
+        </form>
+        {% endblock %}
+
+
+

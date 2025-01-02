@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="{% static 'script3.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style3.css' %}">
+
+<div style="text-align: center; padding-top: 50px; background-color: #FFFFFF;">
+    <h1 style="color: #333; font-size: 30px;">회원 가입</h1>
+</div>
+<div style="display: flex; justify-content: center; padding: 50px 0; background-color: #FFFFFF;" >
+    <div class="signup-box" style="width: 600px;">
+        <div class="signup-box-content">
+            <div style="text-align: center;">
+                <img src="{% static 'login1.png' %}" alt="사용자 회원 이미지" style="width: 120px; height: 115px;">
+            </div>
+            <a href="{% url 'user_signup' %}" class="signup-button blue-button" style="margin-top: 50px; width: 170px;">가입하기</a>
+            <br>
+            <p class="signup-title" style="font-size:15px;">※ 돌봄이 회원가입의 경우 유형에서 반드시 '돌봄이'를 선택해 주세요.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

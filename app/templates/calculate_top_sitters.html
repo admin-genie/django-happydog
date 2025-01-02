@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    const sitterUrl = "{% url 'sitter' %}"; 
+</script>
+<script src="{% static 'script2.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+    
+    <div style="display: flex; margin-left: 250px; padding: 20px 0; background-color: #FFFFFF;">
+        <div class="input-container">
+            <div class="input-box">
+                <div class="input-label">돌봄 서비스 지역</div>
+                <div class="input-field">
+                    <img src="{% static 'magnifier.png' %}">
+                    <select>
+                        <option value="" disabled selected>지역을 선택하세요.</option>
+                        <option value="강남구">강남구</option>
+                        <option value="강동구">강동구</option>
+                        <option value="강북구">강북구</option>
+                        <option value="강서구">강서구</option>
+                        <option value="관악구">관악구</option>
+                        <option value="광진구">광진구</option>
+                        <option value="구로구">구로구</option>
+                        <option value="금천구">금천구</option>
+                        <option value="노원구">노원구</option>
+                        <option value="도봉구">도봉구</option>
+                        <option value="동대문구">동대문구</option>
+                        <option value="동작구">동작구</option>
+                        <option value="마포구">마포구</option>
+                        <option value="서대문구">서대문구</option>
+                        <option value="서초구">서초구</option>
+                        <option value="성동구">성동구</option>
+                        <option value="성북구">성북구</option>
+                        <option value="송파구">송파구</option>
+                        <option value="양천구">양천구</option>
+                        <option value="영등포구">영등포구</option>
+                        <option value="용산구">용산구</option>
+                        <option value="은평구">은평구</option>
+                        <option value="종로구">종로구</option>
+                        <option value="중구">중구</option>
+                        <option value="중랑구">중랑구</option>
+                    </select>
+                </div>
+            </div>
+                <div class="input-box">
+                    <div class="input-label">반려견 크기</div>
+                    <div class="input-field">
+                        <img src="{% static 'magnifier.png' %}">
+                        <select>
+                            <option value="" disabled selected>크기를 선택하세요.</option>
+                            <option value="소형/중형">소형/중형</option>
+                            <option value="대형">대형</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #FFFFFF;">
+        <div class="button-header">원하시는 조건을 선택하세요. <span style="font-size:16px">(중복 선택 가능)</span></div>
+        <div class="button-container">
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">방문 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">픽업 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">산책 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">다견 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">1박 가능</div>
+            </div>
+            <div class="custom-button">
+                <div class="button-text">자격증<br>여부</div>
+            </div>
+            <div style="margin-top: 20px;">
+                <button class="search-button">검색</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div style="background-color: #FAFAFA;  justify-content: center; padding: 70px 0; margin-top: 100px;">
+        <p style="text-align: center; font-size: 20px; color: gray;">나와 우리 반려견에게 꼭 맞는 돌봄이를 찾아보세요.</p>
+        <ul class="sitter-list" style="list-style: none; padding: 0; display: flex; justify-content: center; flex-wrap: wrap;">
+            {% for ts in top_sitters %}
+                <li style="margin: 10px;">
+                    <div class="sitter-box" onclick="redirectToSitterPage()">
+                        <div class="sitter-content">
+                            <img src="{% static 'ex_s1.png' %}" class="sitter-image">
+                            <div class="sitter-text">
+                                <span class="sitter-description">"반려견과 일상에서 많은 것을 함께할 수 있도록 최선을 다하겠습니다."</span>
+                                <hr class="sitter-divider">
+                                <span class="sitter-name">{{ ts.sitter.first_name }}</span>
+                                <span class="sitter-value">{{ ts.sitter.get_age }}세</span>
+                                <span class="sitter-value">{{ ts.sitter.gender }}</span>
+                                <span class="sitter-value">{{ ts.sitter.local }}</span> 
+                            </div>
+                        </div>
+                    <div class="sitter-details">
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question1_response == 1.0 %}
+                            #대형견 돌봄 가능
+                            {% else %}
+                            #대형견 돌봄 불가능
+                            {% endif %}
+                        </span>
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question2_response == 1.0 %}
+                            #픽업 가능
+                            {% else %}
+                            #픽업 불가능
+                            {% endif %}
+                        </span>
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question3_response == 1.0 %}
+                            #산책 가능
+                            {% else %}
+                            #산책 불가능
+                            {% endif %}
+                        </span>
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question4_response == 1.0 %}
+                            #다견 돌봄 가능
+                            {% else %}
+                            #다견 돌봄 불가능
+                            {% endif %}
+                        </span>
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question5_response == 1.0 %}
+                            #1박 이상 가능
+                            {% else %}
+                            #1박 이상 불가능
+                            {% endif %}
+                        </span>
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question6_response == 1.0 %}
+                            #방문 돌봄 가능
+                            {% else %}
+                            #방문 돌봄 불가능
+                            {% endif %}
+                        </span>
+                        <span class="sitter-value">
+                            {% if ts.sitter_survey.question7_response == 1.0 %}
+                            #자격증 있음
+                            {% else %}
+                            #자격증 없음
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <style>
+    .sitter-box {
+        border: 1px solid #ddd;
+        margin: 30px;
+        padding: 50px;
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        border-radius: 30px; 
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    }
+    
+    .sitter-content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .sitter-image {
+        max-width: 120px;
+        height: auto;
+        margin-right: 20px;
+    }
+    
+    .sitter-text {
+        flex: 1;
+    }
+    
+    .sitter-description {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .sitter-divider {
+        border-top: 1px solid #ccc;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .sitter-name {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .sitter-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    </style>
+    <script>
+        function redirectToSitterPage() {
+            window.location.href = "{% url 'ex_sitter' %}";
+        }
+    </script>
+{% endblock %}

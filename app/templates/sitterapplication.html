@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="{% static 'script1.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style9.css' %}">
+
+<div style="display: flex; justify-content: center;">
+    <div style="position: relative;">
+        <img style="width: 1920px; height: 500px;" src="{% static 's_dog.png' %}">
+        <a href="{% url 'user_signup' %}" id="sitter-button" class="custom-button" onclick="redirectToSitterPage()">
+            <div class="button-text">돌보미 지원하기</div>
+        </a>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; padding: 100px 0; background-color: #FFFFFF; position: relative;">
+    <div class="slide-in">
+        <div class="slide-in-content">
+            <h1 class="slide-in-title" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);">돌보미 활동을 위한 지원</h1>
+        </div>
+    </div>
+    <div style="width: 100px;"></div>
+    <div class="box" style="position: relative; margin-top: 200px;">
+        <img style="width: 80px; height: 80px; position: absolute; top: 5%; transform: translate(-50%, 0); left: 50%;" src="{% static 'box4.png' %}">
+        <div class="circle"></div>
+            <p class="circle-text">하나</p>
+            <p class="box-text">온라인 및 오프라인 교육 지원</p>
+            <p class="box-text">
+                서비스 메뉴얼 숙지와 고객 응대법,<br>
+                사고 예방 및 상황 대처법,<br>
+                소/중/대형견 맞춤 산책 방법 등<br>
+                전문 강사진이 온/오프라인<br>
+                교육을 지원합니다.</p>
+    </div>
+    <div class="box" style="position: relative; margin-top: 200px;">
+        <img style="width: 80px; height: 80px; position: absolute; top: 5%; transform: translate(-50%, 0); left: 50%;" src="{% static 'box5.png' %}">
+        <div class="circle"></div>
+            <p class="circle-text">둘</p>
+             <p class="box-text">활동에 필요한 물품 지급</p>
+             <p class="box-text">
+                계절별 유니폼, 이중 산책줄,<br>
+                액션캠, 명함 등<br>
+                활동에 필요한<br>
+                물품을 지원합니다.<br>
+                (일부 보증금 발생)</p>
+    </div>
+    <div class="box" style="position: relative; margin-top: 200px;">
+        <img style="width: 80px; height: 80px; position: absolute; top: 5%; transform: translate(-50%, 0); left: 50%;" src="{% static 'box6.png' %}">
+        <div class="circle"></div>
+         <p class="circle-text">셋</p>
+        <p class="box-text">전문 상담사의 고객 응대</p>
+        <p class="box-text">
+            돌봄이 분들이<br>
+            돌봄에만 집중할 수 있도록<br>
+            고객 문의는<br>
+            전문 상담사가<br>도와드립니다.</p>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; padding: 100px 0; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; display: flex; flex-direction: column; align-items: center;">
+        <div class="fadeIn" style="flex: 1;">
+            <h1 style="font-size: 38px; font-weight: bold; color: #333;">돌보미 활동 단계</h1>
+        </div>
+        <img style="width: 800px; height: 80;" src="{% static 'box7.png' %}">
+        <p style="font-size: 22px; color: #444; margin-top: 20px; letter-spacing: 2px; text-align: center;">
+            <span style="margin-right: 265px;">산책 수락</span>
+            <span style="margin-right: 265px;">산책 케어</span>
+            <span>정산 받기</span>
+        </p>
+        <p style="font-size: 18px; color: #444; margin-top: 20px; letter-spacing: 2px; text-align: center;">
+            <span style="margin-right: 150px;">가능한 날짜의 예약 수락</span>
+            <span style="margin-right: 150px;">산책 전후 모든 과정 케어</span>
+            <span>활동 완료 후 정산 받기</span>
+        </p>
+    </div>
+</div>
+<div style="padding: 100px 0; background-color: #FFFFFF;">
+    <div class="slide-in" style="font-size: 37px; font-weight: bold; color: #333; text-align: center; margin-bottom: 90px;">걱정하지마세요</div>
+    <div class="box-container" style="display: flex; flex-direction: column; align-items: center;">
+    <p style="font-size: 20px; color: #444; margin-bottom: 5px;">혹시 무슨 일이 생기더라도 솔루션을 줄 수 있는</p>
+    <p style="font-size: 20px; color: #444; margin-bottom: 5px;">전문 훈련사와 상담사가 항시 대기 중 입니다.</p>
+    <p style="font-size: 20px; color: #444;">행복한 노후 생활, 해피 투개더와 함께하세요.</p>
+    </div>
+</div>
+{% endblock %}

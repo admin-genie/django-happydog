@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style8.css' %}">
+<div class="post-detail-container">
+    <div class="post-detail">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-info">작성자: {{ post.author }}</p>
+        <p class="post-info">작성일: {{ post.created_at }}</p>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }} 이미지">
+        {% endif %}
+        <p class="post-content">{{ post.content }}</p>
+        
+        {% if user == post.author %}
+            <button class="edit-button" onclick="window.location.href='{% url 'edit_post' pk=post.pk %}'">수정</button>
+            <button class="delete-button" data-url="{% url 'delete_post' post.pk %}">삭제</button>
+        {% endif %}
+    </div>
+    <a href="{% url 'community' %}" class="back-link">목록으로 돌아가기</a>
+</div>
+<script>
+    document.querySelectorAll('.delete-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            if (confirm('정말로 삭제하시겠습니까?')) {
+                const url = this.getAttribute('data-url');
+                
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({}),
+                }).then(function(response) {
+                    if (response.ok) {
+                        window.location.href = '{% url 'community' %}';
+                    }
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

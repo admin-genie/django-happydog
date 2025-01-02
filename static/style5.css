@@ -1,0 +1,46 @@
+.survey-form {
+    max-width: 800px;
+    margin: 45px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.survey-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.survey-title {
+    font-size: 22px;
+    margin-left: 0;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding-left: 420px;
+}
+
+.survey-question {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #cecece;
+}
+
+.survey-options {
+    margin-top: 10px;
+}
+
+.survey-option {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.survey-option input[type="radio"] {
+    margin-right: 5px;
+}
+

@@ -1,0 +1,177 @@
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15.50px;
+    padding: 40px 0; 
+}
+
+.input-box:not(:last-child) {
+    margin-right: 100px;
+}
+
+.input-label {
+    color: #393C47;
+    font-size: 17px;
+    font-family: Inter;
+    font-weight: 500;
+    font-weight: bold;
+    line-height: 22.50px;
+    word-wrap: break-word;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 3.50px 25px;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    border: 0.50px #EBEBEB solid;
+}
+
+.input-field img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.input-field select {
+    width: 250px;
+    height: 35px;
+    flex: 1;
+    padding-left: 12px;
+    padding-right: 40px;
+    font-size: 15px; 
+}
+
+.button-header {
+    color: #393C47;
+    font-size: 17px; 
+    font-family: Inter;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 250px;
+}
+
+.button-container {
+    align-self: stretch;
+    padding-left: 250px; 
+    justify-content: space-between;
+    align-items: center; 
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.custom-button {
+    width: 80px;
+    height: 55px;
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+    border-radius: 30px;
+    box-shadow: 1px 6px 12px rgba(0, 0, 0, 0.1); 
+    color: #646464;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.5s, box-shadow 0.5s;
+    padding: 0 35px; 
+    background: none;
+    border: 2px solid #f6f6f686; 
+}
+
+.button-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+}
+
+.custom-button:hover {
+    color: #189be7;
+    border-color: #6fb8e3b3; 
+}
+
+.custom-button.active {
+    color: #ffffff; 
+    background-color: #58b9ffc9; 
+    
+}
+
+.search-button {
+    position: absolute; 
+    background: linear-gradient(to bottom, #84ff84, #18E720);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 55px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-top: 50px;
+    margin-left: -150px;
+}
+
+.button-container {
+    position: relative;
+    align-self: stretch;
+    padding-left: 250px;
+    justify-content: space-between;
+    align-items: center;
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.box2 {
+    width: 100%; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    margin-bottom: 20px; 
+    display: flex;
+}
+
+.review-image {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.review-content {
+    padding-left: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+}
+
+.bold-text {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.review-text {
+    margin-top: 10px;
+}
+
+.review-date {
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style7.css' %}">
+<div class="community-content">
+    <div class="post-form-container">
+        <div class="col-md-8">
+            <h2 class="community-title">게시물 작성</h2>
+            <form method="post" class="post-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">제목</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="category">카테고리</label>
+                    <select class="form-control" id="category" name="category">
+                        <option value="자랑해요">자랑해요</option>
+                        <option value="공유해요">공유해요</option>
+                        <option value="나눔해요">나눔해요</option>
+                        <option value="함께해요">함께해요</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.image.id_for_label }}">이미지</label>
+                    {{ form.image }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.content.id_for_label }}">내용</label>
+                    {{ form.content }}
+                </div>
+                <button type="submit" class="btn btn-primary">작성하기</button>
+                <button type="button" class="btn btn-danger">취소</button>
+            </form>
+        </div>
+    </div> 
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var categorySelect = document.getElementById('category');
+        var titleInput = document.getElementById('{{ form.title.id_for_label }}');
+        var previousCategory = categorySelect.value;
+        var cancelButton = document.getElementById('cancel-button');
+
+        categorySelect.addEventListener('change', function() {
+            var selectedCategory = categorySelect.value;
+            var currentTitle = titleInput.value;
+
+            if (selectedCategory !== previousCategory) {
+                currentTitle = currentTitle.replace(/\[[^\]]+\]/g, '');
+                titleInput.value = '[' + selectedCategory + '] ' + currentTitle.trim();
+                previousCategory = selectedCategory;
+            }
+        });
+
+        titleInput.addEventListener('input', function() {
+            var currentTitle = titleInput.value;
+            var currentCategory = categorySelect.value;
+            if (currentTitle.startsWith('[' + currentCategory + ']')) {
+                titleInput.value = '[' + currentCategory + '] ' + currentTitle.substring(currentCategory.length + 3);
+            }
+        });
+
+        cancelButton.addEventListener('click', function() {
+            window.location.href = "{% url 'community' %}";
+        });
+    });
+</script>
+{% endblock %}

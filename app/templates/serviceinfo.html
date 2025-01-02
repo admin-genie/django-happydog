@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="{% static 'script1.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
+
+<div style="display: flex; justify-content: center;">
+    <div style="position: relative;">
+        <img style="width: 1920px; height: 600px;" src="{% static 'm_dog.png' %}">
+        <a href="{% url 'sitter' %}" id="sitter-button" class="custom-button" onclick="redirectToSitterPage()">
+            <div class="button-text">돌보미 찾기</div>
+        </a>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; padding: 100px 0; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; display: flex; align-items: center;">
+        <div class="fadeIn" style="flex: 1;">
+            <h1 style="font-size: 45px; font-weight: bold; color: #333; margin-bottom: 10px;">해피투개더<span style="font-size: 24px; font-weight: normal;">는</span></h1>
+            <p style="font-size: 20px; color: #444; margin-bottom: 5px;">바쁜 현대인의 반려견 돌봄 걱정을 덜고,</p>
+            <p style="font-size: 20px; color: #444; margin-bottom: 5px;">노인들의 사회적 활동을 장려하기 위해 탄생했습니다.</p>
+            <p style="font-size: 20px; color: #444;">노인 돌보미와 바쁜 현대인, 그리고 반려견이 함께 만들어가는 이 특별한 공간에서</p>
+            <p style="font-size: 20px; color: #444;">우리의 작은 행복이 함께하길 기대합니다.</p>
+        </div>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; padding: 100px 0; background-color: #F6F6F6;">
+    <div class="slide-in">
+        <div class="slide-in-content">
+            <h1 class="slide-in-title">안심하세요</h1>
+            <p class="slide-in-text">믿고 맡길 수 있는<br>전문 돌보미가 함께합니다.</p>
+        </div>
+    </div>
+    <div style="width: 80px;"></div>
+    <div class="box" style="position: relative;">
+        <img style="width: 80px; height: 80px; position: absolute; top: 5%; transform: translate(-50%, 0); left: 50%;" src="{% static 'box1.png' %}">
+        <div class="circle"></div>
+            <p class="circle-text">01</p>
+        <div class="line"></div>
+            <p class="box-text">신원 확인</p>
+            <p class="box-text">서류 합격자에 한해,<br>돌보미 자격 관련<br>1:1 비대면 인터뷰를 진행합니다.</p>
+    </div>
+    <div class="box" style="position: relative;">
+        <img style="width: 80px; height: 80px; position: absolute; top: 5%; transform: translate(-50%, 0); left: 50%;" src="{% static 'box2.png' %}">
+        <div class="circle"></div>
+            <p class="circle-text">02</p>
+        <div class="line"></div>
+             <p class="box-text">안전성 검증</p>
+             <p class="box-text">직접 돌보미의 집에 방문하여<br>돌봄 환경에 대한<br>안전성을 검증합니다.</p>
+    </div>
+    <div class="box" style="position: relative;">
+        <img style="width: 80px; height: 80px; position: absolute; top: 5%; transform: translate(-50%, 0); left: 50%;" src="{% static 'box3.png' %}">
+        <div class="circle"></div>
+         <p class="circle-text">03</p>
+        <div class="line"></div>
+        <p class="box-text">전문 교육 수료</p>
+        <p class="box-text">전문 훈련가의 지도하에<br>이론 및 실습 교육을<br>수료합니다.</p>
+    </div>
+</div>
+<div style="padding: 100px 0; background-color: #FFFFFF;">
+    <h2 class="slide-in" style="font-size: 40px; font-weight: bold; color: #333; text-align: center; margin-bottom: 90px;">돌보미 이용 후기</h2>
+    <div class="box-container" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <div class="box2" style="position: relative;">
+            <div class="review-image" style="background-image: url('{% static 'g.png' %}');"></div>
+            <div class="review-content">
+                <div class="review-author">
+                    <img src="{% static 'star.png' %}">
+                    <p class="bold-text">우유 보호자님</p>
+                </div>
+                <p class="review-text">돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용</p>
+                <p class="review-date">작성 날짜: 2023년 8월 25일</p>
+            </div>
+        </div>
+        <div class="box2" style="position: relative;">
+            <div class="review-image" style="background-image: url('{% static 'g.png' %}');"></div>
+            <div class="review-content">
+                <div class="review-author">
+                    <img src="{% static 'star.png' %}">
+                    <p class="bold-text">초코 보호자님</p>
+                </div>
+                <p class="review-text">돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용</p>
+                <p class="review-date">작성 날짜: 2023년 8월 25일</p>
+            </div>
+        </div>
+        <div class="box2" style="position: relative;">
+            <div class="review-image" style="background-image: url('{% static 'g.png' %}');"></div>
+            <div class="review-content">
+                <div class="review-author">
+                    <img src="{% static 'star.png' %}">
+                    <p class="bold-text">몽실이 보호자님</p>
+                </div>
+                <p class="review-text">돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용</p>
+                <p class="review-date">작성 날짜: 2023년 8월 25일</p>
+            </div>
+        </div>
+        <div class="box2" style="position: relative;">
+            <div class="review-image" style="background-image: url('{% static 'g.png' %}');"></div>
+            <div class="review-content">
+                <div class="review-author">
+                    <img src="{% static 'star.png' %}">
+                    <p class="bold-text">감자 보호자님</p>
+                </div>
+                <p class="review-text">돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용</p>
+                <p class="review-date">작성 날짜: 2023년 8월 25일</p>
+            </div>
+        </div>
+        <div class="box2" style="position: relative;">
+            <div class="review-image" style="background-image: url('{% static 'g.png' %}');"></div>
+            <div class="review-content">
+                <div class="review-author">
+                    <img src="{% static 'star.png' %}">
+                    <p class="bold-text">덕구 보호자님</p>
+                </div>
+                <p class="review-text">돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용 돌보미 서비스를 이용한 후기 내용</p>
+                <p class="review-date">작성 날짜: 2023년 8월 25일</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

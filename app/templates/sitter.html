@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    const sitterUrl = "{% url 'sitter' %}"; 
+</script>
+<script src="{% static 'script2.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+    
+    <div style="display: flex; margin-left: 250px; padding: 20px 0; background-color: #FFFFFF;">
+        <div class="input-container">
+            <div class="input-box">
+                <div class="input-label">돌봄 서비스 지역</div>
+                <div class="input-field">
+                    <img src="{% static 'magnifier.png' %}">
+                    <select>
+                        <option value="" disabled selected>지역을 선택하세요.</option>
+                        <option value="강남구">강남구</option>
+                        <option value="강동구">강동구</option>
+                        <option value="강북구">강북구</option>
+                        <option value="강서구">강서구</option>
+                        <option value="관악구">관악구</option>
+                        <option value="광진구">광진구</option>
+                        <option value="구로구">구로구</option>
+                        <option value="금천구">금천구</option>
+                        <option value="노원구">노원구</option>
+                        <option value="도봉구">도봉구</option>
+                        <option value="동대문구">동대문구</option>
+                        <option value="동작구">동작구</option>
+                        <option value="마포구">마포구</option>
+                        <option value="서대문구">서대문구</option>
+                        <option value="서초구">서초구</option>
+                        <option value="성동구">성동구</option>
+                        <option value="성북구">성북구</option>
+                        <option value="송파구">송파구</option>
+                        <option value="양천구">양천구</option>
+                        <option value="영등포구">영등포구</option>
+                        <option value="용산구">용산구</option>
+                        <option value="은평구">은평구</option>
+                        <option value="종로구">종로구</option>
+                        <option value="중구">중구</option>
+                        <option value="중랑구">중랑구</option>
+                    </select>
+                </div>
+            </div>
+                <div class="input-box">
+                    <div class="input-label">반려견 크기</div>
+                    <div class="input-field">
+                        <img src="{% static 'magnifier.png' %}">
+                        <select>
+                            <option value="" disabled selected>크기를 선택하세요.</option>
+                            <option value="소형/중형">소형/중형</option>
+                            <option value="대형">대형</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #FFFFFF;">
+        <div class="button-header">원하시는 조건을 선택하세요. <span style="font-size:16px">(중복 선택 가능)</span></div>
+        <div class="button-container">
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">방문 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">픽업 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">산책 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">다견 가능</div>
+            </div>
+            <div class="custom-button" style="margin-right: 25px;">
+                <div class="button-text">1박 가능</div>
+            </div>
+            <div class="custom-button">
+                <div class="button-text">자격증<br>여부</div>
+            </div>
+            <div style="margin-top: 20px;">
+                <button class="search-button">검색</button>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background-color: #F6F6F6; display: flex; justify-content: center; padding: 200px 0; margin-top: 120px;">
+    </div>
+{% endblock %}

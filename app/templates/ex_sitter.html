@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style11.css' %}">
+
+<div style="display: flex; justify-content: center; position: relative;">
+    <img style="width: 1920px; height: 180px;" src="{% static 'ex1.png' %}">
+    <div style="width: 800px; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: left; position: absolute; top: 240px; margin-top: 20px; border: 2px solid #ccc;">
+        <div style="text-align: center;">
+            <img style="width: 200px; height: 180px; border-radius: 50%; solid #ccc;" src="{% static 'ex_s1.png' %}">
+            <p>"편안하게 맡겨 주세요. 사랑으로 돌보겠습니다."</p>
+            <h2>○○○ 돌봄이</h2>
+            <p>성별: 남성</p>
+            <p>연령대: 60대</p>
+            <p>이용후기 11건</p>
+        </div>
+        
+        <hr style="border-top: 1px solid #ccc; margin: 20px 0;">
+        <h3>돌봄환경</h3>
+        <p><img style="width: 40px; margin-right: 10px; vertical-align: -5px;" src="{% static 'icon1.png' %}"><span>돌봄 공간: 주택(마당 있음)</span></p>
+        <p><img style="width: 40px; margin-right: 10px; vertical-align: -10px;" src="{% static 'icon2.png' %}"><span>12세 이하 아동: 없음</span></p>
+        <p><img style="width: 40px; margin-right: 10px; vertical-align: -10px;" src="{% static 'icon3.png' %}"><span>반려견 펜스: 있음</span></p>
+        <p><img style="width: 40px; margin-right: 10px; vertical-align: -10px;" src="{% static 'icon4.png' %}"><span>동거 반려동물: 없음</span></p>
+        <p><img style="width: 40px; margin-right: 10px; vertical-align: -13px;" src="{% static 'icon5.png' %}"><span>실내흡연: 금연</span></p>
+        <p><img style="width: 40px; margin-right: 10px; vertical-align: -10px;" src="{% static 'icon6.png' %}"><span>돌봄 가능 나이: 1살 미만 강아지, 성견, 8살 이상 노령견 모두 가능</span></p>
+        <hr style="border-top: 1px solid #ccc; margin: 20px 0;"> 
+        <h3>기타사항</h3>
+        <p>💚해주세요: 평소 먹는 사료/간식, 산책용품(목줄, 인식표), 배변패드, 매너벨트(마킹시), 좋아하는 장난감</p>
+        <p>💚힘들어요: 전염성 질환이 있는 아이, 물거나 공격적인 아이</p>
+        <hr style="border-top: 1px solid #ccc; margin: 20px 0;"> 
+        <h3>예약</h3>
+        <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: left;">
+            <form method="post">
+                {% csrf_token %}
+            <div class="form-group">
+                    <label for="pickup_time">맡기는 시간: {{ pickup_time }}</label>
+                    <input type="text" id="pickup_time" name="pickup_time" placeholder="예: 14:00" required>
+                </div>
+                <div class="form-group">
+                    <label for="dropoff_time">데려가는 시간: {{ dropoff_time }}</label>
+                    <input type="text" id="dropoff_time" name="dropoff_time" placeholder="예: 18:00" required>
+                </div>
+                <div class="form-group">
+                    <label for="start_date">시작날짜: {{ start_date }}</label>
+                    <input type="text" id="start_date" name="start_date" placeholder="예: 2023-09-15" required>
+                </div>
+                <div class="form-group">
+                    <label for="end_date">마침날짜: {{ end_date }}</label>
+                    <input type="text" id="end_date" name="end_date" placeholder="예: 2023-09-16" required>
+                </div>
+            </form>
+        </div>
+        <div style="margin-top: 25px; display: flex; justify-content: flex-end;">
+            <a href="{% url 'user_profile' %}">
+                <button type="button" style="font-size: 18px; background-color: #007BFF; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">문의하기</button>
+            </a>
+        </div>
+{% endblock %}
