@@ -1,6 +1,6 @@
 # Django 웹 개발 #
 - - -
-### Python Version
+#### Python Version
 - Python 3.12.1 [Python 공식 웹사이트](https://www.python.org/downloads/)
 #### Project Folder
 ```
@@ -34,7 +34,7 @@ python -m django --version
 ```
 python manage.py runserver
 ```
-_서버가 실행되면 http://127.0.0.1:8000/ 또는 http://localhost:8000/로 접속 가능_
+_서버가 실행되면 http://127.0.0.1:8000/ 또는 http://localhost:8000/ 으로 접속 가능_
 
 #### 가상 환경 비활성화(작업 이후)
 ```
