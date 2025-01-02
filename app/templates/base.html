@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}해피투개더{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style0.css' %}">
+    <script>
+        // 로그아웃 버튼 클릭 시, POST 방식으로 폼 제출
+        function submitLogoutForm() {
+            document.getElementById('logout-form').submit();
+        }
+    </script>
 </head>
 <body style="overflow-x: hidden">
 <div class="navbar">
@@ -19,7 +25,14 @@
         <li class="menu-item"><a href="{% url 'community' %}">커뮤니티</a></li>
 
         {% if user.is_authenticated %}
-            <li class="menu-item"><a href="{% url 'logout' %}">로그아웃</a></li>
+            <!-- 로그아웃을 위한 POST 폼을 숨기고 자바스크립트로 제출 -->
+            <li class="menu-item">
+                <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a href="#" onclick="submitLogoutForm()" class="logout-text">로그아웃</a>
+            </li>
+
             {% if user.user_type == 'user' %}
                 <li class="menu-item"><a href="{% url 'user_profile' %}">내정보</a></li>
             {% elif user.user_type == 'sitter' %}
@@ -35,7 +48,3 @@
 {% block content %}{% endblock %}
 </body>
 </html>
-
-
-
-
